@@ -30,6 +30,7 @@ int main()
             arr[i] %= 10;
             arr[i - 1] += carry;
         }
+        // Remove the leading 0 [0,0,1,2,3,4]
         while (first <= val2.size() + val.size() && arr[first]==0)
         first++;
         for(int i=first;i<arr.size();i++)

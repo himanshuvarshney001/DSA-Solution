@@ -15,7 +15,7 @@ int main()
     int count=1;
     for (int i=1;i<num;i++)
     {
-        if (i<size&&arr[i]==arr[i-1])
+        if (i<num &&arr[i]==arr[i-1])
         {
             count++;
         }
