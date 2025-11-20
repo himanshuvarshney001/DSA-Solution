@@ -29,6 +29,6 @@ int main()
         }
         if(i==size)
         break;
-    }
+    } 
     cout<<k;
 }
