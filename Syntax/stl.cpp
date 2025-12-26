@@ -4,6 +4,12 @@ using namespace std;
 // Pairs
 void explainpairs()
 {
+//The std::pair in C++ is a container 
+//that            
+//stores exactly two values as a single 
+//unit, 
+//which can be of the same or different data       
+//types.
     pair<int, int> a = {1, 2};
     cout << a.first << " " << a.second << endl;
 
