@@ -1,26 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
+//"  hello world  "
+string reverse(string &str)
+{
+    string word="";
+    bool flag=false;
+    string result="";
+    str=" "+str+" ";
+    reverse(str.begin(),str.end());//"  dlrow olleh  "
+    for(auto i:str)
+    {
+        if(i!=' ')
+        {
+            word=i+word;
+            flag=true;
+        }
+        else if(flag)
+        {
+            result=result+" "+word;
+            flag=false;
+            word.clear();
+        }
+    }
+    return result.substr(1,result.length()-1);
+}
 int main()
 {
-    string s,word="";
-    cout<<"Enter the string=";
-    getline(cin,s);
-     int n=s.length();
-       string res="";
-       reverse(s.begin(),s.end());
-       for(int i=0;i<n;i++)
-       {
-        string word="";
-        while(i<n && s[i]!=' ')
-        {
-            
-            word=word+s[i];
-            i++;
-        }
-        reverse(word.begin(),word.end());
-        if(word.length()>0)
-        res=res+" "+word;
-       }
-       cout<<res.substr(1);
-    
+    string str;
+    getline(cin,str);
+    string result=reverse(str);
+    cout<<result;
 }
