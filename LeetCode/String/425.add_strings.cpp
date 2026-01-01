@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+string add(string &num1, string &num2)
+{
+    int i = num1.size() - 1;
+    int j = num2.size() - 1;
+    int carry = 0;
+    string result;
+    while (i >= 0 || j >= 0 || carry > 0)
+    {
+        int digit1 = (i >= 0) ? (num1[i--] - '0') : 0;
+        int digit2 = (j >= 0) ? (num2[j--] - '0') : 0;
+        int sum = digit1 + digit2 + carry;
+        carry = sum / 10;
+        result.push_back((sum % 10) + '0');
+    }
+
+    reverse(result.begin(), result.end());
+    return result;
+}
+int main()
+{
+    string str1, str2;
+    cin >> str1 >> str2;
+    string result = add(str1, str2);
+    cout << result;
+    return 0;
+}
