@@ -1,24 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
-void Insertion_sort(vector<int> &arr)
+void Insertion_sort(vector<int> &nums)
 {
-    for (int i = 1; i < arr.size(); i++)
+    for (int i = 1; i < nums.size(); i++)
     {
-        int key = arr[i];
+        int key = nums[i];
         int position = i;
-        for (int j = 0; j < i; j++)
+        for (int j = 0; j <= i; j++)
         {
-            if (arr[j] > key)
+            if (nums[j] > key)
             {
                 position = j;
                 break;
             }
         }
-        for (int j = i-1; j >=position; j--)
-            arr[j + 1] = arr[j];
-        arr[position]=key;
+        for (int j = i - 1; j >= position; j--)
+        {
+            swap(nums[j + 1], nums[j]);
+        }
     }
 }
+
 int main()
 {
     int size;
