@@ -5,48 +5,26 @@
 
 // input 9,4
 // output 15
-#include<iostream>
+#include <iostream>
 using namespace std;
+
 int main()
 {
-	int k,s;
-	int count=1;
-	int digit_sum=0,digit;
-	cin>>k>>s;
-	int num=s;
-	for(int i=0; i<=s*100; i++)
-	{
-		num=num+1;
-		digit=num%10;
-		if(digit<=k)
-			digit_sum=digit_sum+digit;
-		else
-		{
-			digit_sum=0;
-			continue;
-		}
-		digit=(num/10)%10;
-		if(digit<=k)
-			digit_sum+=digit;
-		else
-		{
-			digit_sum=0;
-			continue;
-		}
-		digit=num/100;
-		if(digit<=k)
-			digit_sum+=digit;
-		else
-		{
-			digit_sum=0;
-			continue;
-		}
-		if(digit_sum==s)
-		{
-			count++;
-		}
-		digit_sum=0;
-	}
-	cout<<count;
-	return 0;
+    int k, s;
+    cin >> k >> s;
+
+    int count = 0;
+
+    for (int x = 0; x <= k; x++)
+    {
+        for (int y = 0; y <= k; y++)
+        {
+            int z = s - x - y;
+            if (z >= 0 && z <= k)
+                count++;
+        }
+    }
+
+    cout << count;
+    return 0;
 }
