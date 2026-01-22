@@ -1,32 +1,27 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
-bool check(long long num)
-{
-    int count=0;
-	while(num)
-	{
-		int digit=num%10;
-		if(digit==4 || digit==7)
-			{
-                count++;
-            } 
-		num/=10;
-	}
-    if(count!=0 && (count==4 || count==7))
-    return true;
-    else return false;
-
-}
 int main()
 {
-	long long a;
-	cin>>a;
-	bool flag=check(a);
-	if(flag)
-		cout<<"YES";
-    else
+    int size,sum=0;
+    cin >> size;
+    int arr_size;
+    cin >> arr_size;
+    int arr[arr_size];
+    for (int i = 0; i < arr_size; i++)
     {
-        cout<<"NO";
-    }    
-	return 0;
+        cin >> arr[i];
+    }
+    for (int i = 0; i < arr_size; i++)
+    {
+        int maxi = arr[i];
+        int mini=arr[i];
+        for (int j = i + 1; j < arr_size; j++)
+        {
+            maxi = max(maxi, arr[j]);
+            mini=min(mini,arr[j]);
+            sum=sum+maxi-mini;
+        }
+    }
+    cout<<sum;
+    return 0;
 }
