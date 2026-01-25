@@ -1,27 +1,46 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int size,sum=0;
-    cin >> size;
-    int arr_size;
-    cin >> arr_size;
-    int arr[arr_size];
-    for (int i = 0; i < arr_size; i++)
+    int size;
+    cin>>size;
+    while(size--)
     {
-        cin >> arr[i];
+       int arr_size,count=0;
+       int k;
+       cin>>arr_size;
+       int arr[arr_size];
+       cin>>k;
+       for(int i=0;i<arr_size;i++)
+       {
+        cin>>arr[i];
+       }
+       if(arr_size>0 && arr[0]!=0)
+       {
+        count=0;
+       }
+       else
+         {
+            int sum=0;
+           for(int i=0;i<arr_size;i++)
+           {
+              if(i<k)
+              {
+                 sum=sum+arr[i];
+                 if(sum>0)
+                 {
+                  count=0;
+                  break;
+                 }
+              }
+              else
+              {
+               count++;
+               i++;
+              }
+           }
+         }
+      cout<<count<<endl;
     }
-    for (int i = 0; i < arr_size; i++)
-    {
-        int maxi = arr[i];
-        int mini=arr[i];
-        for (int j = i + 1; j < arr_size; j++)
-        {
-            maxi = max(maxi, arr[j]);
-            mini=min(mini,arr[j]);
-            sum=sum+maxi-mini;
-        }
-    }
-    cout<<sum;
     return 0;
 }
