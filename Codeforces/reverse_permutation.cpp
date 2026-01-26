@@ -1,33 +1,43 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int size;
-    cin >> size;
-    while (size--)
+    int test;
+    cin >> test;
+    while(test--)
     {
-        int arr_size;
-        cin >> arr_size;
-        string str = "";
-        vector<int> arr(arr_size);
-        for (int i = 0; i < arr_size; i++)
+        int size,left=-1,right=-1;
+        cin>>size;
+        vector<int> arr(size);
+        for (int i = 0;i<size;i++)
         {
             cin >> arr[i];
-            str += char(arr[i] + '0');
         }
-        string temp = str;
-        sort(temp.begin(), temp.end());
-        do
+        int temp = size;
+        bool flag = true;
+        for (int i = 0; i < size;i++)
         {
-            if(temp>str)
+            if(arr[i]!=temp&&flag)
             {
-                str = temp;
+                left = i;
+                flag = false;
             }
-        } while (next_permutation(temp.begin(), temp.end()));
-        
-        for(char i:str)
+            if(flag)
+            temp--;
+            if(!flag && arr[i]==temp)
+            {
+                right = i;
+                break;
+            }
+            
+        }
+        if(left>=0 && right>=0)
         {
-            cout << i << " ";
+            reverse(arr.begin() + left, arr.begin() + right+1);
+        }
+        for (int i = 0; i < arr.size();i++)
+        {
+            cout << arr[i] << " ";
         }
         cout << endl;
     }
