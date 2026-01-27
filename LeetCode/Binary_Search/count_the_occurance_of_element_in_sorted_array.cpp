@@ -36,12 +36,13 @@ int upper(vector<int> &arr, int num)
     }
     return ans;
 }
-vector<int> searchInsert(vector<int> &arr, int target)
+
+vector<int> searchRange(vector<int> &arr, int target)
 {
-   int i=lower(arr,target);
-   int j = upper(arr, target);
-   if(i==arr.size() || arr[i]!=target)
-       return {-1, -1};
+    int i = lower(arr, target);
+    int j = upper(arr, target);
+    if (i == arr.size() || arr[i] != target)
+        return {-1, -1};
     else
         return {i, j - 1};
 }
@@ -57,8 +58,13 @@ int main()
     }
     cout << "Enter number=";
     cin >> k;
-    vector<int> result = searchInsert(arr, k);
-    for (auto it : result)
-        cout << it;
+    vector<int> result = searchRange(arr, k);
+    // cout << result[1] << result[0] << endl;
+    if (result[0] == -1)
+        cout << 0;
+    else if (result[0] != -1 && result[1] == -1)
+        cout << 1;
+    else
+        cout << result[1] - result[0] + 1;
     return 0;
 }
