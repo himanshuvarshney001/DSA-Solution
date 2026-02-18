@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-// It is working only for distinct character
 int findMin(vector<int> &nums)
 {
     int low = 0;
@@ -10,9 +9,19 @@ int findMin(vector<int> &nums)
     while (low <= high)
     {
         int mid = low + (high - low) / 2;
-        // left half will be sorted
-        if (nums[low] <= nums[mid])
+        if(nums[mid]==nums[low] && nums[high]==nums[mid])
         {
+            low++;
+            high--;
+        }
+        // left half will be sorted
+        else if (nums[low] <= nums[mid])
+        {
+            if (nums[low] == nums[mid])
+            {
+                low++;
+                mid--;
+            }
             if (mini > nums[low])
             {
                 index = low;
@@ -23,6 +32,11 @@ int findMin(vector<int> &nums)
         // Right half will be sorted
         else
         {
+            if (nums[mid] == nums[high])
+            {
+                mid++;
+                high--;
+            }
             if (mini > nums[mid])
             {
                 mini = nums[mid];
@@ -31,7 +45,7 @@ int findMin(vector<int> &nums)
             high = mid - 1;
         }
     }
-    return index;
+    return nums[index];
 }
 int main()
 {
