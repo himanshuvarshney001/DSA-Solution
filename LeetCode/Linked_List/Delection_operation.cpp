@@ -112,7 +112,7 @@ node *deleteEnd(node *he)
         cout << "Linkedlist is empty!";
         return he;
     }
-    else if(temp->next==NULL)
+    else if (temp->next == NULL)
     {
         free(he);
         he = NULL;
@@ -120,8 +120,7 @@ node *deleteEnd(node *he)
     }
     else
     {
-       
-        while(temp->next->next!=NULL)
+        while (temp->next->next != NULL)
         {
             temp = temp->next;
         }
@@ -130,6 +129,46 @@ node *deleteEnd(node *he)
         temp->next = NULL;
         return he;
     }
+}
+node *speposition(node *head)
+{
+    int position;
+    if (head == NULL)
+    {
+        cout << "LinkedList is empty!" << endl;
+        return head;
+    }
+    cout << "Enter Position of element that is want to delete=";
+    cin >> position;
+    if (position <= 0)
+    {
+        cout << "Invalid Position!" << endl;
+        return head;
+    }
+    if (position == 1)
+    {
+        head = deleteFirst(head);
+        return head;
+    }
+    int k = 1, i;
+    node *ptr, *temp = head;
+    for (i = 1; temp != NULL && i < position; i++)
+    {
+        ptr = temp;
+        temp = temp->next;
+    }
+    if (temp != NULL)
+    {
+        ptr->next = temp->next;
+        cout << "Deleted element is " << temp->data << endl;
+        free(temp);
+    }
+    else
+    {
+        cout << "This position not exist (Please enter correct position)" << endl;
+    }
+
+    return head;
 }
 int main()
 {
@@ -164,6 +203,10 @@ int main()
         else if (choice == 5)
         {
             head = deleteEnd(head);
+        }
+        else if (choice == 6)
+        {
+            head = speposition(head);
         }
         else if (choice == 7)
         {
