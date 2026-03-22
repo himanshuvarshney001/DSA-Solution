@@ -63,7 +63,7 @@ NODE *insertionNode2(NODE *head)
         temp = temp->next;
         size++;
     }
-    cout << "Enter position where you want to insert=";
+    cout << "Enter position(1 to N) where you want to insert=";
     cin >> position;
     if (position > size+1 || position < 1)
     {
@@ -209,8 +209,7 @@ void fdisplay(NODE *head)
             cout << temp->data << " ";
             temp = temp->next;
         }
-        cout << endl
-             << endl;
+        cout << endl<< endl;
     }
 }
 void bdisplay(NODE *head)

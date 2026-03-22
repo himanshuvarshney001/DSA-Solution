@@ -73,12 +73,12 @@ NODE *insert_specific(NODE *he)
     {
         for (int i = 1; i < k; i++)
         {
-            temp = temp->next;
             if (temp == NULL)
             {
-                cout << "Node in the list at less than one" << endl;
+                cout << "position out of bound" << endl;
                 return he;
             }
+            temp = temp->next;
         }
         NODE *item = (NODE *)malloc(sizeof(NODE));
         cout << "Enter Element=";
