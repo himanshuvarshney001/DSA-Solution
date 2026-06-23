@@ -1,10 +1,10 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 int swap(int a, int ith)
 {
     // using left shift operator
     
-        return (a ^ (1 << ith));
+    return (a&(~(1<<ith)));
     
 }
 int main()

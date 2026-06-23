@@ -9,7 +9,7 @@ struct node
 typedef struct node NODE;
 void display(NODE *head)
 {
-	NODE *temp=head;
+	NODE *temp = head;
 	if (temp == NULL)
 	{
 		cout << "Linked list is empty" << endl;
@@ -22,22 +22,30 @@ void display(NODE *head)
 	}
 	cout << endl;
 }
-NODE* delete_duplicate(NODE *head)
+NODE *delete_duplicate(NODE *head)
 {
-	NODE *temp = head;
-	if(head==NULL || head->next==NULL)
+	if (head == NULL || head->next == NULL)
 		return head;
-	while(temp!=NULL)
+	NODE *temp = head;
+	while (temp != NULL)
 	{
-		if(temp->next!=NULL && temp->data==temp->next->data)
+		NODE *temp1 = temp;
+		while (temp1->next != NULL)
 		{
-			NODE* ptr=temp->next;
-			temp->next=temp->next->next;
-			delete ptr;
+			if(temp->data==temp1->next->data)
+			{
+				NODE *duplicate = temp1->next;
+				temp1->next = temp1->next->next;
+				delete duplicate;
+			}
+			else
+			{
+				temp1 = temp1->next;
+			}
 		}
-		else
-			temp=temp->next;
+		temp = temp->next;
 	}
+	cout << "Delete duplicate successfully" << endl;
 	return head;
 }
 NODE *insertEnd(NODE *head)
@@ -46,7 +54,8 @@ NODE *insertEnd(NODE *head)
 	cout << "Enter the item=";
 	cin >> node->data;
 	NODE *temp = head;
-	if (temp == NULL)
+	node->next = NULL;
+	if (head == NULL)
 	{
 		return node;
 	}
@@ -54,7 +63,7 @@ NODE *insertEnd(NODE *head)
 	{
 		temp = temp->next;
 	}
-	node->next = NULL;
+
 	temp->next = node;
 	return head;
 }
@@ -62,22 +71,22 @@ int main()
 {
 
 	NODE *head = NULL;
-	while(1)
+	while (1)
 	{
-		int choice=0;
-		cout << "1.Insert at the first="<<endl;
-		cout<<"2.Display="<<endl;
+		int choice = 0;
+		cout << "1.Insert at the first=" << endl;
+		cout << "2.Display=" << endl;
 		cout << "3.Delete duplicate elements=" << endl;
 		cin >> choice;
-		if(choice==1)
+		if (choice == 1)
 		{
 			head = insertEnd(head);
 		}
-		else if(choice==2)
+		else if (choice == 2)
 		{
 			display(head);
 		}
-		else if(choice==3)
+		else if (choice == 3)
 		{
 			head = delete_duplicate(head);
 		}

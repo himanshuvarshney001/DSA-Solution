@@ -58,10 +58,10 @@ Node *insert_end(Node *head)
     }
     return head;
 }
-void display(Node* head)
+void display(Node *head)
 {
     Node *temp = head;
-    if(head==NULL)
+    if (head == NULL)
     {
         cout << endl
              << "Linked list is empty" << endl;
@@ -79,8 +79,8 @@ void display(Node* head)
 int main()
 {
     Node *head = NULL;
-    head=insert_first(head);
-    head=insert_end(head);
+    head = insert_first(head);
+    head = insert_end(head);
     display(head);
     return 0;
 }

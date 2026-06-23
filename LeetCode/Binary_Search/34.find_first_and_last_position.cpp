@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 int lower(vector<int> &arr, int num)
 {
@@ -38,10 +39,10 @@ int upper(vector<int> &arr, int num)
 }
 vector<int> searchInsert(vector<int> &arr, int target)
 {
-   int i=lower(arr,target);
-   int j = upper(arr, target);
-   if(i==arr.size() || arr[i]!=target)
-       return {-1, -1};
+    int i = lower(arr, target);
+    int j = upper(arr, target);
+    if (i == arr.size() || arr[i] != target)
+        return {-1, -1};
     else
         return {i, j - 1};
 }

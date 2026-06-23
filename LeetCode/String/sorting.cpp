@@ -10,21 +10,22 @@ vector<string> sorting_rev(vector<string> &str)
     sort(str.begin(), str.end(), greater<string>());
     return str;
 }
-vector<string> costom_sorting(vector<string> &str){
-    sort(str.begin(), str.end(), [](const string &a, const string &b) {
+vector<string> costom_sorting(vector<string> &str)
+{
+    sort(str.begin(), str.end(), [](const string &a, const string &b)
+         {
        if(a.length()!=b.length())
             return a.length()<b.length();
-        return a<b;    
-    });
+        return a<b; });
     return str;
-} 
+}
 vector<string> costom_sorting_rev(vector<string> &str)
 {
-     sort(str.begin(), str.end(), [](const string &a, const string &b) {
+    sort(str.begin(), str.end(), [](const string &a, const string &b)
+         {
        if(a.length()!=b.length())
             return a.length()>b.length();
-        return a>b;    
-    });
+        return a>b; });
     return str;
 }
 int main()
@@ -37,31 +38,31 @@ int main()
     {
         cin >> arr[i];
     }
-    cout<<endl;
+    cout << endl;
     vector<string> result;
     result = sorting(arr);
     for (auto i : arr)
     {
         cout << i << " ";
     }
-    cout<<endl;
+    cout << endl;
     result = sorting_rev(arr);
     for (auto i : arr)
     {
         cout << i << " ";
     }
-    cout<<endl;
+    cout << endl;
     result = costom_sorting(arr);
     for (auto i : arr)
     {
         cout << i << " ";
     }
-    cout<<endl;
+    cout << endl;
     result = costom_sorting_rev(arr);
     for (auto i : arr)
     {
         cout << i << " ";
     }
-    cout<<endl;
+    cout << endl;
     return 0;
 }
