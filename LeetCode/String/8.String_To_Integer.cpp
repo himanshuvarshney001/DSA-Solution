@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include<vector>
 using namespace std;
 int myAtoi(string &s)
 {
@@ -14,7 +15,7 @@ int myAtoi(string &s)
             sign = '-';
         i++;
     }
-    if (i < n && !isdigit(s[i]))
+    if (i < n && !(s[i]>='0' && s[i]<='9'))
         return 0;
     while (i < n && isdigit(s[i]))
     {
@@ -28,6 +29,7 @@ int myAtoi(string &s)
             return INT_MAX;
         if (sign == '-' && -num < INT_MIN)
             return INT_MIN;
+        num=num*10+(result[j]-'0');
     }
     return (sign == '-') ? -num : num;
 }

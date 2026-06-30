@@ -26,10 +26,8 @@ void nextPermutation(vector<int> &arr)
                 pos = i;
             }
         }
-        int temp = arr[pos];
-        arr[pos] = arr[pivot_pos];
-        arr[pivot_pos] = temp;
-        sort(arr.begin() + (pivot_pos + 1), arr.end());
+        swap(arr[pivot_pos],arr[pos]);
+        reverse(arr.begin() + (pivot_pos + 1), arr.end());
     }
 }
 

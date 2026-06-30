@@ -9,10 +9,7 @@ int f(int n)
 int main()
 {
     int n;
-    cout<<"Enter how many series print=";
     cin>>n;
-    for(int i=0;i<n;i++)
-    {
-        cout<<f(i);
-    }
+    cout<<f(n-1);
+    return 0;
 }

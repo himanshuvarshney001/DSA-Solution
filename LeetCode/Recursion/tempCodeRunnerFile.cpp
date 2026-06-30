@@ -1,22 +1,9 @@
-#include<iostream>
-using namespace std;
-void p(int n)
+void sum(int row,int col,vector<vector<int>> &a,vector<vector<int>> &b)
 {
-    if(n<=0)
+    if(row==a.size()-1 && col==a[0].size()-1)
     return;
-    p(n/10);
-    cout<<n%10<<" ";
-}
-int main()
-{
-    int n;
-    cin>>n;
-    while(n--)
-    {
-        int a;
-        cin>>a;
-        p(a);
-        cout<<endl;
-    }
-    return 0;
+    if(col==a[0].size())
+    row++;
+    a[row]=a[row][col]+b[row][col];
+    sum(row,col+1,a,b);
 }
