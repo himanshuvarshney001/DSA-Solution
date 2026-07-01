@@ -2,7 +2,6 @@
 #include <vector>
 #include <climits>
 using namespace std;
-
 vector<int> findSubarray(vector<int>& arr)
 {
     vector<int> result;
